@@ -1,0 +1,25 @@
+Workflow 
+
+    1. User calls gdb with -wrapper option, in which the wrapper is setup.py, to generate a gdbinit file. 
+    2. User calls gdb and passes the generated gdbinit file 
+    3. User has more fun debugging! :D 
+
+    setup.py should: 
+        1. extract args and exec info to populate gdbinit 
+        2. Ask user to quit or continue if possible. If continued then we iterate to the next called exec and repopulate gdbinit
+
+Example
+
+    1. example_wrapper.sh contains an example of how to use the setup.py wrapper 
+
+Pitfalls
+
+    1. GDB complains that your gdbinit file is not safe to load. There are several ways to deal with this. 
+
+    One way to resolve this is to add "safe" paths to one's ~/.gdbinit file
+        e.g.    
+            add-auto-load-safe-path /home/Dev/DebugMe/.gdbinit
+    
+    RTFM, if you want other ways to deal :3
+    
+    
